@@ -6,7 +6,7 @@ import { Header } from "../../components/Header/Header";
 import LeftArrow from "../../assets/arrow-left.svg";
 import RightArrow from "../../assets/arrow-right.svg";
 
-const Blog = () => {
+function Blog() {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const { data } = useGetgetAllRecipes();
@@ -56,6 +56,6 @@ const Blog = () => {
       <FeedBlog usedData={usedData} />
     </>
   );
-};
+}
 
 export default Blog;
