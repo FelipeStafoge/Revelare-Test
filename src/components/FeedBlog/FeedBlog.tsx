@@ -5,7 +5,7 @@ type FeedBlogProps = {
   usedData: any;
 };
 
-export const FeedBlog = ({ search, usedData }: FeedBlogProps) => {
+export const FeedBlog = ({ usedData }: FeedBlogProps) => {
   const hasSeeMoreButton = true;
   return (
     <div>
