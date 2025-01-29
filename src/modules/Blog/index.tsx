@@ -6,7 +6,7 @@ import { Header } from "../../components/Header/Header";
 import LeftArrow from "../../assets/arrow-left.svg";
 import RightArrow from "../../assets/arrow-right.svg";
 
-export const Blog = () => {
+const Blog = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const { data } = useGetgetAllRecipes();
