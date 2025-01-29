@@ -5,14 +5,12 @@ import Home from "./modules/Home";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Blog />} />
-          <Route path="/blog" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route key={"HomeKey"} path="/" element={<Blog />} />
+        <Route key={"BlogKey"} path="blog" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
