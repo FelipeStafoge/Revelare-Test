@@ -8,28 +8,23 @@ export const Blog = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(0);
   const { data } = useGetgetAllRecipes();
-  const itemsPerPage = 3;
 
   const usedData = useMemo(() => {
     if (search !== "") {
-      return data
-        .filter((element: any) =>
-          element.receita.toLowerCase().includes(search.toLowerCase())
-        )
-        .slice(page, page + itemsPerPage);
+      return data.filter((element: any) =>
+        element.receita.toLowerCase().includes(search.toLowerCase())
+      );
     }
-    return data?.slice(page, page + itemsPerPage);
-  }, [data, page, search]);
+    const start = page * 3;
+    const end = start + 3;
+    return data?.slice(start, end);
+  }, [data, search, page]);
 
-  const canGoNext = page + itemsPerPage < (usedData?.length || 0);
-  const canGoPrev = page > 0;
-
-  const changePage = (direction: string) => {
-    if (direction === "next" && canGoNext) {
-      setPage((prevPage) => prevPage + itemsPerPage);
-    } else if (direction === "prev" && canGoPrev) {
-      setPage((prevPage) => prevPage - itemsPerPage);
-    }
+  const switchPage = (param: string) => {
+    setPage((prevPage) => {
+      if (param === "next") return Math.min(prevPage + 1, 2);
+      return Math.max(prevPage - 1, 0);
+    });
   };
 
   return (
@@ -37,20 +32,20 @@ export const Blog = () => {
       <Header search={search} setSearch={setSearch} isBlog />
       <DivArrows>
         <ContainerArrow>
-          {canGoPrev && (
+          {page > 0 && (
             <StyledArrow
               id="prev"
               src="src/assets/arrow-left.svg"
-              onClick={() => changePage("prev")}
+              onClick={() => switchPage("prev")}
             />
           )}
         </ContainerArrow>
         <ContainerArrow>
-          {canGoNext && (
+          {page < 2 && (
             <StyledArrow
               id="next"
               src="src/assets/arrow-right.svg"
-              onClick={() => changePage("next")}
+              onClick={() => switchPage("next")}
             />
           )}
         </ContainerArrow>
