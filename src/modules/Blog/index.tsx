@@ -3,6 +3,8 @@ import { DivArrows, ContainerArrow, StyledArrow } from "./styles";
 import { useGetgetAllRecipes } from "../../query/GetRecipes/GetRecipes";
 import { FeedBlog } from "../../components/FeedBlog/FeedBlog";
 import { Header } from "../../components/Header/Header";
+import LeftArrow from "../../assets/arrow-left.svg";
+import RightArrow from "../../assets/arrow-right.svg";
 
 export const Blog = () => {
   const [search, setSearch] = useState("");
@@ -35,7 +37,7 @@ export const Blog = () => {
           {page > 0 && (
             <StyledArrow
               id="prev"
-              src="src/assets/arrow-left.svg"
+              src={LeftArrow}
               onClick={() => switchPage("prev")}
             />
           )}
@@ -44,7 +46,7 @@ export const Blog = () => {
           {page < 2 && (
             <StyledArrow
               id="next"
-              src="src/assets/arrow-right.svg"
+              src={RightArrow}
               onClick={() => switchPage("next")}
             />
           )}

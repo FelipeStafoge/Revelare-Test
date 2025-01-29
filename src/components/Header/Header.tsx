@@ -1,4 +1,7 @@
 import { HeaderContainer, Icon, Input, InputWithMenu } from "./styles";
+import IconBakery from "../../assets/bakeryIcon.png";
+import LogoStarbucks from "../../assets/logo.png";
+import MenuIC from "../../assets/menu.png";
 
 type HeaderProps = {
   isBlog?: boolean;
@@ -13,7 +16,7 @@ export const Header = ({ search, setSearch, isBlog }: HeaderProps) => {
         alt="LOGO"
         $sizeWidth="50"
         $sizeHeight="50"
-        src={isBlog ? "src/assets/bakeryIcon.png" : "src/assets/logo.png"}
+        src={isBlog ? IconBakery : LogoStarbucks}
       />
       <InputWithMenu>
         {isBlog ? (
@@ -30,12 +33,7 @@ export const Header = ({ search, setSearch, isBlog }: HeaderProps) => {
         ) : (
           <Input type="text" placeholder="Search" />
         )}
-        <Icon
-          alt="MENU"
-          src="src/assets/menu.png"
-          $sizeWidth="15"
-          $sizeHeight="15"
-        />
+        <Icon alt="MENU" src={MenuIC} $sizeWidth="15" $sizeHeight="15" />
       </InputWithMenu>
     </HeaderContainer>
   );

@@ -1,6 +1,17 @@
 import { ContainerTextAndImg } from "../../components/ContainerTextAndImg/ContainerTextAndImg";
 import { ContainerTwoImgsAndText } from "../../components/ContainerTwoImgsAndText/ContainerTwoImgsAndText";
 import { Header } from "../../components/Header/Header";
+import C1 from "../../assets/cups/c1.jpg";
+import C2 from "../../assets/cups/c2.jpg";
+import C3 from "../../assets/cups/c3.jpg";
+import BG from "../../assets/backgrounds/bg.jpg";
+import BiggerImage01 from "../../assets/photos/f1.jpg";
+import LowerImage01 from "../../assets/photos/f2.jpg";
+import BiggerImage02 from "../../assets/photos/f3.jpg";
+import LowerImage02 from "../../assets/photos/f4.jpg";
+import BiggerImage03 from "../../assets/photos/f5.jpg";
+import LowerImage03 from "../../assets/backgrounds/bg2.jpg";
+import Background from "../../assets/backgrounds/bg3.jpg";
 
 function Home() {
   const hasTopLine = true;
@@ -16,13 +27,9 @@ function Home() {
             text: "Encontraremos você em sua caixa de entrada. Ofertas de bebidas estão a caminho",
           },
         }}
-        background="src/assets/backgrounds/bg.jpg"
+        background={BG}
         hasToRenderCups
-        allCups={[
-          "src/assets/cups/c1.jpg",
-          "src/assets/cups/c2.jpg",
-          "src/assets/cups/c3.jpg",
-        ]}
+        allCups={[C1, C2, C3]}
         backgroundColor="249, 249, 251"
       />
 
@@ -35,8 +42,8 @@ function Home() {
           hasTopLine,
           hasSeeMoreButton,
         }}
-        biggerImg="src/assets/photos/f1.jpg"
-        lowerImg="src/assets/photos/f2.jpg"
+        biggerImg={BiggerImage01}
+        lowerImg={LowerImage01}
       />
       <ContainerTwoImgsAndText
         textContainerProps={{
@@ -49,8 +56,8 @@ function Home() {
           hasTopLine,
           hasSeeMoreButton,
         }}
-        biggerImg="src/assets/photos/f3.jpg"
-        lowerImg="src/assets/photos/f4.jpg"
+        biggerImg={BiggerImage02}
+        lowerImg={LowerImage02}
         reverseRow
       />
       <ContainerTwoImgsAndText
@@ -64,8 +71,8 @@ function Home() {
           hasTopLine,
           hasSeeMoreButton,
         }}
-        biggerImg="src/assets/photos/f5.jpg"
-        lowerImg="src/assets/backgrounds/bg2.jpg"
+        biggerImg={BiggerImage03}
+        lowerImg={LowerImage03}
       />
       <ContainerTextAndImg
         textContainerProps={{
@@ -77,7 +84,7 @@ function Home() {
           hasSeeMoreButton,
         }}
         backgroundColor="231, 233, 237"
-        background="src/assets/backgrounds/bg3.jpg"
+        background={Background}
       />
     </>
   );
