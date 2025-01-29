@@ -1,14 +1,15 @@
 import Blog from "./modules/Blog";
-import Home from "./modules/Home";
+
 import { BrowserRouter, Route, Routes } from "react-router";
+import Home from "./modules/Home";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/" element={<Blog />} />
+          <Route path="/blog" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
