@@ -17,6 +17,8 @@ export type TitleSubTitleComponent = {
   };
   hasSeeMoreButton?: boolean;
   backgroundColor?: string;
+  ingredients?: string;
+  creationDate?: string;
 };
 
 export const TitleSubTitleComponent = ({
@@ -25,11 +27,17 @@ export const TitleSubTitleComponent = ({
   hasTopLine,
   backgroundColor,
   hasSeeMoreButton,
+  creationDate,
+  ingredients,
 }: TitleSubTitleComponent) => {
   const [isOpen, setIsOpen] = useState(false);
+  const newDate = new Date(creationDate || "");
   return (
     <BackgroundContainer $backgroundColor={backgroundColor}>
       <Container>
+        {creationDate && (
+          <CreationDateDiv>{newDate.toDateString()}</CreationDateDiv>
+        )}
         {hasTopLine && <TopLine />}
         <TitleDiv>
           <TitlePhrase $fontSize={title.fontSize}>{title.text}</TitlePhrase>
@@ -37,6 +45,11 @@ export const TitleSubTitleComponent = ({
         <SubTitleDiv>
           <SubTitlePhrase>{subTitle.text}</SubTitlePhrase>
         </SubTitleDiv>
+        {ingredients && (
+          <SubTitleDiv>
+            <SubTitlePhrase>{ingredients}</SubTitlePhrase>
+          </SubTitleDiv>
+        )}
         {hasSeeMoreButton && (
           <SeeMoreButton
             className="ButtonStyledClass"
@@ -63,18 +76,17 @@ export const TitleSubTitleComponent = ({
             }}
           >
             <SeeMoreModal>
-              <X
+              <XIcon
                 size={24}
                 onClick={() => {
                   setIsOpen(false);
                 }}
-                style={{ top: "10px", right: "10px", position: "absolute" }}
               />
               <TitleSubTitleComponent
                 hasTopLine
-                title={{ text: "Lorem Ipsum Dolor" }}
+                title={{ text: title.text }}
                 subTitle={{
-                  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget odio non arcu feugiat imperdiet nec sed leo. Sed lectus mauris, fringilla sit amet accumsan at, pellentesque vitae ipsum. Nullam",
+                  text: subTitle.text,
                 }}
               />
             </SeeMoreModal>
@@ -84,6 +96,14 @@ export const TitleSubTitleComponent = ({
     </BackgroundContainer>
   );
 };
+
+const XIcon = styled(X)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+
+const CreationDateDiv = styled.div``;
 
 const BackgroundContainer = styled.div<{
   $backgroundColor?: string;

@@ -3,9 +3,11 @@ import { BiggerImage, Container, LowerImage, TextAndImage } from "./styles";
 
 type ContainerTwoImgsAndTextProps = {
   textContainerProps: TitleSubTitleComponent;
-  lowerImg: string;
+  lowerImg?: string;
   biggerImg: string;
   reverseRow?: boolean;
+  ingredients?: string;
+  creationDate?: string;
 };
 
 export const ContainerTwoImgsAndText = ({
@@ -13,6 +15,8 @@ export const ContainerTwoImgsAndText = ({
   lowerImg,
   biggerImg,
   reverseRow,
+  ingredients,
+  creationDate,
 }: ContainerTwoImgsAndTextProps) => {
   return (
     <Container $reverseRow={reverseRow}>
@@ -22,8 +26,12 @@ export const ContainerTwoImgsAndText = ({
           subTitle={textContainerProps.subTitle}
           hasTopLine={textContainerProps?.hasTopLine}
           hasSeeMoreButton={textContainerProps?.hasSeeMoreButton}
+          ingredients={ingredients}
+          creationDate={creationDate}
         />
-        <LowerImage src={lowerImg} alt="Lower-Image" />
+        {!textContainerProps.ingredients && (
+          <LowerImage src={lowerImg} alt="Lower-Image" />
+        )}
       </TextAndImage>
       <BiggerImage src={biggerImg} alt="Bigger-Image" />
     </Container>
