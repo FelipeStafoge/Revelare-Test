@@ -1,12 +1,13 @@
 import { Container, ImageContainer } from "./styles";
 
-export const LastBackground = () => {
+type LastBackgroundProps = {
+  src: string;
+};
+
+export const LastBackground = ({ src }: LastBackgroundProps) => {
   return (
     <Container>
-      <ImageContainer
-        title="last-background"
-        src="src/assets/backgrounds/bg4.jpg"
-      />
+      <ImageContainer title="last-background" src={src} />
     </Container>
   );
 };

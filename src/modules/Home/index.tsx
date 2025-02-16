@@ -1,6 +1,7 @@
 import { ContainerTextAndImg } from "../../components/ContainerTextAndImg/ContainerTextAndImg";
 import { ContainerTwoImgsAndText } from "../../components/ContainerTwoImgsAndText/ContainerTwoImgsAndText";
 import { Header } from "../../components/Header/Header";
+import { LastBackground } from "../../components/LastBackground/LastBackground";
 import C1 from "../../assets/cups/c1.jpg";
 import C2 from "../../assets/cups/c2.jpg";
 import C3 from "../../assets/cups/c3.jpg";
@@ -12,7 +13,7 @@ import LowerImage02 from "../../assets/photos/f4.jpg";
 import BiggerImage03 from "../../assets/photos/f5.jpg";
 import LowerImage03 from "../../assets/backgrounds/bg2.jpg";
 import Background from "../../assets/backgrounds/bg3.jpg";
-import { LastBackground } from "../../components/LastBackground/LastBackground";
+import LastBackgroundImage from "../../assets/backgrounds/bg4.jpg";
 
 function Home() {
   const hasTopLine = true;
@@ -87,7 +88,7 @@ function Home() {
         backgroundColor="231, 233, 237"
         background={Background}
       />
-      <LastBackground />
+      <LastBackground src={LastBackgroundImage} />
     </>
   );
 }
