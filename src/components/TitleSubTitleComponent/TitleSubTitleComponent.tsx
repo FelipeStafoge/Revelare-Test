@@ -13,7 +13,7 @@ export type TitleSubTitleComponent = {
   subTitle: {
     text: string;
     style?: string;
-    fontSize?: Int16Array;
+    fontSize?: number;
   };
   hasSeeMoreButton?: boolean;
   backgroundColor?: string;
